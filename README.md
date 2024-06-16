@@ -1,21 +1,21 @@
-Hello there 👋,
+**Hello there** 👋,
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square)
 
 
-I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to:
+**I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to as of now**:
 
-🔭 Currently diving deep into:
+🔭 **Currently diving deep into**:
 
-API Cypress JS Automation: Crafting automation scripts for APIs using JavaScript and Cypress.
+**API Cypress JS Automation**: Crafting automation scripts for APIs using JavaScript and Cypress.
 
-Coding Challenges Solutions: A treasure trove of solutions to coding challenges, showcasing my expertise in JS and Python.
+**Coding Challenges Solutions**: A treasure trove of solutions to coding challenges, showcasing my expertise in JS and Python.
 
-API Test Python Behave: Exploring the world of Behavior Driven Development (BDD) with Behave and pytest for testing https://petstore.swagger.io/.
+**API Test Python Behave**: Exploring the world of Behavior Driven Development (BDD) with Behave and pytest for testing https://petstore.swagger.io/.
 
-API Test Playwright TS: Diving into end-to-end testing with TypeScript and Playwright.
+**API Test Playwright TS**: Diving into end-to-end testing with TypeScript and Playwright.
 
-🌱 Learning and growing every day in:
+🌱 **Learning and growing every day in**:
 
 Advanced Python and JavaScript landscapes.
 Expanding my TypeScript automation toolkit.
@@ -24,25 +24,25 @@ Expanding my TypeScript automation toolkit.
 
 Automation testing projects that are open-source.
 
-🤔 Seeking insights on:
+🤔 **Seeking insights on**:
 
 Building scalable test automation frameworks.
 Anybody keen to contribute to my open-source projects.
 
-💬 Curious about:
+💬 **Curious about**:
 
 Python automation and BDD with Behave.
 In API/UI testing with Cypress and Playwright.
 
 
-📫 Reach out to me via: https://github.com/DipyomoyBarua/DipyomoyBarua/issues
+📫 **Reach out to me via**: https://github.com/DipyomoyBarua/DipyomoyBarua/issues
 
-GitHub Issues
+**GitHub Issues**
 Or shoot me an email at ayan.barua25@gmail.com
 
-😄 Pronouns: He/Him
+😄 **Pronouns**: He/Him
 
-⚡ Fun fact: I thrive on turning problems into simple, elegant solutions and enjoy transforming repetitive tasks into seamless processes.
+⚡ **Fun fact**: I thrive on turning problems into simple, elegant solutions and enjoy transforming repetitive tasks into seamless processes.
 
 
 
