@@ -8,8 +8,11 @@ I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what 
 🔭 Currently diving deep into:
 
 API Cypress JS Automation: Crafting automation scripts for APIs using JavaScript and Cypress.
+
 Coding Challenges Solutions: A treasure trove of solutions to coding challenges, showcasing my expertise in JS and Python.
+
 API Test Python Behave: Exploring the world of Behavior Driven Development (BDD) with Behave and pytest for testing https://petstore.swagger.io/.
+
 API Test Playwright TS: Diving into end-to-end testing with TypeScript and Playwright.
 
 🌱 Learning and growing every day in:
