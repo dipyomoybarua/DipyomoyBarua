@@ -12,13 +12,12 @@ API Test Playwright TS: Diving into end-to-end testing with TypeScript and Playw
 
 🌱 Learning and growing every day in:
 
-Advanced JavaScript and TypeScript landscapes.
-Expanding my Python automation toolkit.
+Advanced Python and JavaScript landscapes.
+Expanding my TypeScript automation toolkit.
 
 👯 Eager to team up on:
 
 Automation testing projects that are open-source.
-Exciting ventures in machine learning and AI.
 
 🤔 Seeking insights on:
 
@@ -27,8 +26,9 @@ Anybody keen to contribute to my open-source projects.
 
 💬 Curious about:
 
-My adventures in API/UI testing with Cypress and Playwright.
 Python automation and BDD with Behave.
+In API/UI testing with Cypress and Playwright.
+
 
 📫 Reach out to me via: https://github.com/DipyomoyBarua/DipyomoyBarua/issues
 
