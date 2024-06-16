@@ -1,5 +1,7 @@
 Hello there 👋,
 
+https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square
+
 
 I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to:
 
