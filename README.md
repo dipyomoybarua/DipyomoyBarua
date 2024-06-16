@@ -35,10 +35,9 @@ Python automation and BDD with Behave.
 In API/UI testing with Cypress and Playwright.
 
 
-📫 **Reach out to me via**: https://github.com/DipyomoyBarua/DipyomoyBarua/issues
+📫 **Reach out to me via**: shoot me an email at ayan.barua25@gmail.com
 
-**GitHub Issues**
-Or shoot me an email at ayan.barua25@gmail.com
+**GitHub Issues**: https://github.com/DipyomoyBarua/DipyomoyBarua/issues
 
 😄 **Pronouns**: He/Him
 
