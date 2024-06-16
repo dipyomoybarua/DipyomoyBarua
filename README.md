@@ -1,6 +1,6 @@
 Hello there 👋,
 
-https://api.countapi.xyz/create?namespace=DipyomoyBarua&key=DipyomoyBarua&value=0
+![Visitor Count](https://img.shields.io/badge/dynamic/json?color=green&label=Profile%20views&query=value&url=https://api.countapi.xyz/get/DipyomoyBarua/DipyomoyBarua)
 
 I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to:
 
