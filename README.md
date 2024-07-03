@@ -1,6 +1,8 @@
 **Hello there** 👋,
 
-![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square)
+<!-- ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square) -->
+[![Dipyomoy Barua](https://img.shields.io/badge/Dipyomoy%20Barua-YourCustomMessage-brightgreen.svg)](https://github.com/dipyomoybarua)
+
 
 
 **I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to as of now**:
