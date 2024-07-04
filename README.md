@@ -43,7 +43,6 @@ In API/UI testing with Cypress and Playwright.
 
 ⚡ **Fun fact**: I thrive on turning problems into simple, elegant solutions and enjoy transforming repetitive tasks into seamless processes.
 
-
 # Dipyomoy Barua's GitHub Stats
 
 ![Dipyomoy Barua's GitHub Stats](https://github-readme-stats.vercel.app/api?username=dipyomoybarua&show_icons=true&locale=en)
