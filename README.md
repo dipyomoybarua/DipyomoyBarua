@@ -46,7 +46,7 @@ In API/UI testing with Cypress and Playwright.
 | ![Dipyomoy Barua's GitHub Stats](https://github-readme-stats.vercel.app/api?username=dipyomoybarua&show_icons=true&locale=en&title_color=ffffff&icon_color=79ff97&text_color=9f9f9f&bg_color=151515) | ![Dipyomoy Barua's Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs?username=dipyomoybarua&show_icons=true&locale=en&layout=compact&title_color=ffffff&text_color=ffffff&icon_color=79ff97&bg_color=151515&border_color=ffffff)|
 | --- | --- |
 
-![Dipyomoy Barua's GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=dipyomoybarua&theme=black-ice&hide_border=true&stroke=0000&background=060a0cd0)
-
-
+<div align ="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=dipyomoybarua&theme=black-ice&hide_border=true&stroke=0000&background=060a0cd0" alt="Dipyomoy Barua's GitHub Streak" />
+</div>
 
