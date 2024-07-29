@@ -1,7 +1,6 @@
 **Hello there** 👋,
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square)
-<!-- [![Dipyomoy Barua](https://img.shields.io/badge/Dipyomoy%20Barua-YourCustomMessage-brightgreen.svg)](https://github.com/dipyomoybarua) -->
 
 **I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to as of now**:
 
@@ -11,9 +10,13 @@
 
 **Coding Challenges Solutions**: A treasure trove of solutions to coding challenges, showcasing my expertise in JS and Python.
 
-**API Test Python Behave**: Exploring the world of Behavior Driven Development (BDD) with Behave and pytest for testing https://petstore.swagger.io/.
+**API Test Python bdd**: Exploring the world of Behavior Driven Development (BDD) with Behave and pytest for testing https://petstore.swagger.io/.
 
 **API Test Playwright TS**: Diving into end-to-end testing with TypeScript and Playwright.
+
+**project-AccuKnox-automation**: Integrating and deploying frontend and backend services onto Kubernetes, with automated testing.
+
+**python-locust-api-poc**: Performance testing POC using Locust for (https://petstore.swagger.io/.).
 
 🌱 **Learning and growing every day in**:
 
