@@ -4,9 +4,9 @@
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=blue&style=flat-square)
 
-<!-- | ![Repo Size](https://camo.githubusercontent.com/50280774d705a2a19f4ee09ab897e366265605ef02e35d70f5dd8afa905dfcff/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f7265706f2d73697a652f4361726f6c34322f4361726f6c34323f636f6c6f723d313831373137266c6f676f3d676974687562267374796c653d666f722d7468652d6261646765266c6f676f436f6c6f723d313831373137) | ![Last Commit](https://camo.githubusercontent.com/30f0dc8c43a9ca3ce9fcdbae1b1a296f922aa01207ca57a63d3fd345659f9e5d/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6173742d636f6d6d69742f6361726f6c34322f6361726f6c34323f636f6c6f723d463035303332266c6f676f3d676974266c6f676f436f6c6f723d666f722d7468652d6261646765) |
+| ![Repo Size](https://img.shields.io/github/repo-size/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) | ![Last Commit](https://img.shields.io/github/last-commit/DipyomoyBarua/DipyomoyBarua?color=F05032&logo=git&logoColor=F05032&style=for-the-badge) |
 | --- | --- |
-| ![Stars](https://camo.githubusercontent.com/f31e46683badc775abd1d17f08fbf382facec5e3549101c44125b5ea15aec7b2/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f73746172732f4361726f6c34322f4361726f6c34323f636f6c6f723d313831373137266c6f676f3d676974687562267374796c653d666f722d7468652d6261646765266c6f676f436f6c6f723d313831373137) | ![Forks](https://camo.githubusercontent.com/a3d26d15cd1ae81148641433c73a3e1445851b158544c0cb5b1ba75ab860df0f/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f666f726b732f4361726f6c34322f4361726f6c34323f636f6c6f723d313831373137266c6f676f3d676974687562267374796c653d666f722d7468652d6261646765266c6f676f436f6c6f723d313831373137) | -->
+| ![Stars](https://img.shields.io/github/stars/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) | ![Forks](https://img.shields.io/github/forks/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) |
 
 **I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to as of now**:
 
