@@ -4,7 +4,9 @@
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge) ![Repo Size](https://img.shields.io/github/repo-size/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) ![Last Commit](https://img.shields.io/github/last-commit/DipyomoyBarua/DipyomoyBarua?color=F05032&logo=git&logoColor=F05032&style=for-the-badge) ![Stars](https://img.shields.io/github/stars/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) ![Forks](https://img.shields.io/github/forks/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 
+## ⭐ & 🍴 If you like my work...
 
+If you find my projects useful or interesting, please consider giving a star ⭐ and forking 🍴 the repositories.
 
 **I'm thrilled to welcome you to my GitHub profile Here's a bit about me and what I'm up to as of now**:
 
