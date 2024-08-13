@@ -7,10 +7,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+# need to remove
+      - name: Debug GH_TOKEN
+        run: echo "${{ secrets.GH_TOKEN }}"
 
-    - name: Use GH_TOKEN
-      run: |
-        echo "Using GH_TOKEN in workflow"
-        curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/user
+      - name: Use GH_TOKEN
+        run: |
+          echo "Using GH_TOKEN in workflow"
+          curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/user
