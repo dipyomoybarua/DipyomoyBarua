@@ -1,6 +1,5 @@
 name: Update README with Repo Stats
 
-# Triggers the workflow on push to the main branch and on a scheduled basis (every hour)
 on:
   push:
     branches:
@@ -13,60 +12,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Calculate the total size of all repositories and gather other statistics
       - name: Calculate Total Repo Size and Stats
         id: repo_stats
         run: |
           total_size=0
           stars=0
           forks=0
-          page=1
-          per_page=100
 
-          while true; do
-            response=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=$per_page&page=$page")
-            if [ "$(echo "$response" | jq -r 'length')" -eq 0 ]; then
-              break
-            fi
-            repos=$(echo "$response" | jq -r '.[].full_name')
+          # Fetch all repositories
+          repos=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100" | jq -r '.[] | .full_name')
 
-            for repo in $repos; do
-              repo_data=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo")
-              repo_size=$(echo "$repo_data" | jq -r '.size')
-              repo_stars=$(echo "$repo_data" | jq -r '.stargazers_count')
-              repo_forks=$(echo "$repo_data" | jq -r '.forks_count')
+          # Check if repos is empty
+          if [ -z "$repos" ]; then
+            echo "No repositories found or error fetching repositories."
+            exit 1
+          fi
 
-              total_size=$((total_size + repo_size))
-              stars=$((stars + repo_stars))
-              forks=$((forks + repo_forks))
-            done
+          # Iterate through each repository
+          for repo in $repos; do
+            repo_size=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.size')
+            repo_stars=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.stargazers_count')
+            repo_forks=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.forks_count')
 
-            page=$((page + 1))
+            # Check if any values are null or empty
+            if [ -z "$repo_size" ]; then repo_size=0; fi
+            if [ -z "$repo_stars" ]; then repo_stars=0; fi
+            if [ -z "$repo_forks" ]; then repo_forks=0; fi
+
+            total_size=$((total_size + repo_size))
+            stars=$((stars + repo_stars))
+            forks=$((forks + repo_forks))
           done
 
-          # Get the last commit date from the first repository (for simplicity)
-          first_repo=$(echo "$repos" | head -n 1)
-          last_commit=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$first_repo" | jq -r '.pushed_at')
+          last_commit=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
           # Set the output variables
-          echo "total_size=$((total_size / 1024))" >> $GITHUB_ENV # Convert to MB
-          echo "stars=$stars" >> $GITHUB_ENV
-          echo "forks=$forks" >> $GITHUB_ENV
-          echo "last_commit=$last_commit" >> $GITHUB_ENV
+          echo "::set-output name=total_size::$((total_size / 1024))" # Convert to MB
+          echo "::set-output name=stars::$stars"
+          echo "::set-output name=forks::$forks"
+          echo "::set-output name=last_commit::$last_commit"
 
-      # Update the README.md file with the latest statistics
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
       - name: Update README
         run: |
-          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ env.total_size }} MB/" README.md
-          sed -i "s/Last Commit:.*/Last Commit: ${{ env.last_commit }}/" README.md
-          sed -i "s/Stars:.*/Stars: ${{ env.stars }}/" README.md
-          sed -i "s/Forks:.*/Forks: ${{ env.forks }}/" README.md
+          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ steps.repo_stats.outputs.total_size }} MB/" README.md
+          sed -i "s/Last Commit:.*/Last Commit: ${{ steps.repo_stats.outputs.last_commit }}/" README.md
+          sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
+          sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
 
-      # Commit the changes to the README file
       - name: Commit Changes
         run: |
           git config --global user.name 'GitHub Action'
