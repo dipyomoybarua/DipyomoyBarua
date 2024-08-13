@@ -19,39 +19,37 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20'
-      
-      - name: Example JavaScript Step
-        run: |
-          echo "Current date and time:"
-          node -e "console.log(new Date().toISOString())"
-        
-      - name: Calculate Total Repo Size and Stats
+
+      - name: Calculate Repo Size and Stats
         id: repo_stats
         run: |
+          # Initialize variables
           total_size=0
           stars=0
           forks=0
           last_commit=$(git log -1 --format="%cd" --date=iso-strict)
-
+          
+          # Fetch repositories data
           repos_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
           repos=$(echo "$repos_response" | jq -r '.[] | select(.fork==false) | .full_name')
-
+          
+          # Loop through each repository to calculate stats
           for repo in $repos; do
             repo_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/repos/$repo")
             repo_size=$(echo "$repo_response" | jq -r '.size // 0')
             repo_stars=$(echo "$repo_response" | jq -r '.stargazers_count // 0')
             repo_forks=$(echo "$repo_response" | jq -r '.forks_count // 0')
-
+            
             total_size=$((total_size + repo_size))
             stars=$((stars + repo_stars))
             forks=$((forks + repo_forks))
           done
-
+          
+          # Save stats to environment variables
           echo "TOTAL_SIZE=$((total_size / 1024))" >> $GITHUB_ENV
           echo "STARS=$stars" >> $GITHUB_ENV
           echo "FORKS=$forks" >> $GITHUB_ENV
           echo "LAST_COMMIT=$last_commit" >> $GITHUB_ENV
-
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
