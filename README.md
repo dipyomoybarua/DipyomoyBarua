@@ -1,6 +1,6 @@
 **Hello there** 👋,
 
-## Repository Overview
+# Repository Overview
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge) 
 ![Repo Size](https://img.shields.io/badge/Repo%20Size-TBD%20MB?color=181717&logo=github&style=for-the-badge&logoColor=181717) 
@@ -13,6 +13,7 @@
 - **Last Commit**: TBD
 - **Stars**: TBD
 - **Forks**: TBD
+
 
 ## ⭐ & 🍴 If you like my work...
 
