@@ -76,15 +76,6 @@ jobs:
           sed -i "s/Last Commit:.*/Last Commit: ${{ steps.repo_stats.outputs.last_commit }}/" README.md
           sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
           sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
-      
-      # - name: Debug PAT
-      #   run: |
-      #       if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
-      #         echo "PAT is not available."
-      #         exit 1
-      #       else
-      #         echo "PAT is available."
-      #       fi
 
       - name: Commit and Push Changes
         run: |
@@ -93,4 +84,3 @@ jobs:
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/dipyomoybarua/DipyomoyBarua.git
-        # shell: /usr/bin/bash -e {0}
