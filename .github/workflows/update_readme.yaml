@@ -77,10 +77,11 @@ jobs:
           sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
           sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
 
-          - name: Commit and Push Changes
-          run: |
-            git config --global user.name 'GitHub Actions'
-            git config --global user.email 'action@github.com'
-            git add README.md
-            git commit -m "Update README with latest repo stats" || echo "No changes to commit"
-            git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/dipyomoybarua/DipyomoyBarua.git        
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'action@github.com'
+          git add README.md
+          git commit -m "Update README with latest repo stats" || echo "No changes to commit"
+          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/dipyomoybarua/DipyomoyBarua.git
+        shell: /usr/bin/bash -e {0}
