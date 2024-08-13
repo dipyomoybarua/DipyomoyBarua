@@ -77,14 +77,14 @@ jobs:
           sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
           sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
       
-      - name: Debug PAT
-        run: |
-            if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
-              echo "PAT is not available."
-              exit 1
-            else
-              echo "PAT is available."
-            fi
+      # - name: Debug PAT
+      #   run: |
+      #       if [ -z "${{ secrets.PERSONAL_ACCESS_TOKEN }}" ]; then
+      #         echo "PAT is not available."
+      #         exit 1
+      #       else
+      #         echo "PAT is available."
+      #       fi
 
       - name: Commit and Push Changes
         run: |
