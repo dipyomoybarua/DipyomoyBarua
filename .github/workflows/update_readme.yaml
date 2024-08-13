@@ -1,18 +1,17 @@
-name: Example Workflow
+name: Token Debugging
 
 on: [push]
 
 jobs:
-  example-job:
+  check-token:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Debug GH_TOKEN
+    - name: Check GH_TOKEN
       run: |
-        echo "GH_TOKEN is present, but not displayed for security reasons."
         echo "Testing GH_TOKEN access..."
         curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/user
       env:
