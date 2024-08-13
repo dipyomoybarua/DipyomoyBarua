@@ -47,13 +47,19 @@ jobs:
           echo "FORKS=$forks" >> $GITHUB_ENV
           echo "LAST_COMMIT=$last_commit" >> $GITHUB_ENV
 
+      - name: Debug Environment Variables
+        run: |
+          echo "TOTAL_SIZE=${{ env.TOTAL_SIZE }}"
+          echo "LAST_COMMIT=${{ env.LAST_COMMIT }}"
+          echo "STARS=${{ env.STARS }}"
+          echo "FORKS=${{ env.FORKS }}"
+
       - name: Update README
         run: |
           sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
           sed -i "s/LAST_COMMIT/${{ env.LAST_COMMIT }}/g" README.md
           sed -i "s/STARS/${{ env.STARS }}/g" README.md
           sed -i "s/FORKS/${{ env.FORKS }}/g" README.md
-        
 
       - name: Commit and Push Changes
         run: |
