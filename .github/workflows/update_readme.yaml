@@ -23,17 +23,14 @@ jobs:
       - name: Calculate Repo Statistics
         id: repo_stats
         run: |
-          # Initialize variables
           total_size=0
           stars=0
           forks=0
           last_commit=$(git log -1 --format="%cd" --date=iso-strict)
 
-          # Fetch repositories data
           repos_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
           repos=$(echo "$repos_response" | jq -r '.[] | select(.fork==false) | .full_name')
 
-          # Loop through each repository to gather statistics
           for repo in $repos; do
             repo_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/repos/$repo")
             repo_size=$(echo "$repo_response" | jq -r '.size // 0')
@@ -45,7 +42,6 @@ jobs:
             forks=$((forks + repo_forks))
           done
 
-          # Export variables for later steps
           echo "TOTAL_SIZE=$((total_size / 1024))" >> $GITHUB_ENV
           echo "STARS=$stars" >> $GITHUB_ENV
           echo "FORKS=$forks" >> $GITHUB_ENV
@@ -53,7 +49,6 @@ jobs:
 
       - name: Update README
         run: |
-          # Update README.md with the latest stats
           sed -i "s/\${TOTAL_SIZE}/${{ env.TOTAL_SIZE }}/g" README.md
           sed -i "s/\${LAST_COMMIT}/${{ env.LAST_COMMIT }}/g" README.md
           sed -i "s/\${STARS}/${{ env.STARS }}/g" README.md
@@ -61,13 +56,8 @@ jobs:
 
       - name: Commit and Push Changes
         run: |
-          # Configure Git
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
-          
-          # Add changes to commit
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
-          
-          # Push changes to repository
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
