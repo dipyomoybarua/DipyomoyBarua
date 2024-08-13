@@ -47,20 +47,20 @@ jobs:
             forks=$((forks + repo_forks))
           done
 
-          echo "::set-output name=total_size::$((total_size / 1024))"
-          echo "::set-output name=stars::$stars"
-          echo "::set-output name=forks::$forks"
-          echo "::set-output name=last_commit::$last_commit"
+          echo "total_size=${total_size}" >> $GITHUB_ENV
+          echo "stars=${stars}" >> $GITHUB_ENV
+          echo "forks=${forks}" >> $GITHUB_ENV
+          echo "last_commit=${last_commit}" >> $GITHUB_ENV
 
         env:
           PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Update README
         run: |
-          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ steps.repo_stats.outputs.total_size }} MB/" README.md
-          sed -i "s/Last Commit:.*/Last Commit: ${{ steps.repo_stats.outputs.last_commit }}/" README.md
-          sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
-          sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
+          sed -i "s/Total Repo Size:.*/Total Repo Size: \${{ env.total_size }} MB/" README.md
+          sed -i "s/Last Commit:.*/Last Commit: \${{ env.last_commit }}/" README.md
+          sed -i "s/Stars:.*/Stars: \${{ env.stars }}/" README.md
+          sed -i "s/Forks:.*/Forks: \${{ env.forks }}/" README.md
 
       - name: Commit and Push Changes
         run: |
