@@ -14,8 +14,6 @@
 - **Stars**: TBD
 - **Forks**: TBD
 
-
-
 ## ⭐ & 🍴 If you like my work...
 
 If you find my projects useful or interesting, please consider giving a star ⭐ and forking 🍴 the repositories.
