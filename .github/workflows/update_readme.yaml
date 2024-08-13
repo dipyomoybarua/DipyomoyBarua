@@ -15,6 +15,16 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      
+      - name: Example JavaScript Step
+        run: |
+          echo "Current date and time:"
+          node -e "console.log(new Date().toISOString())"
+        
       - name: Calculate Total Repo Size and Stats
         id: repo_stats
         run: |
