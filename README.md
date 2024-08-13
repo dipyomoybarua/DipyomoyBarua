@@ -9,10 +9,10 @@
 ![Forks](https://img.shields.io/badge/Forks-${{ env.FORKS }}?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 
 ### Repository Statistics
-- **Total Repo Size:** TBD MB
-- **Last Commit:** TBD
-- **Stars:** TBD
-- **Forks:** TBD
+- **Total Repo Size: 13 MB
+- **Last Commit: 2024-08-14T01:05:02+05:30
+- **Stars: 5
+- **Forks: 0
 
 
 ## ⭐ & 🍴 If you like my work...
