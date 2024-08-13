@@ -24,24 +24,33 @@ jobs:
           total_size=0
           stars=0
           forks=0
+          page=1
+          per_page=100
 
-          # Fetch all repository data
-          repos=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100" | jq -r '.[].full_name')
+          while true; do
+            response=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=$per_page&page=$page")
+            if [ "$(echo "$response" | jq -r 'length')" -eq 0 ]; then
+              break
+            fi
+            repos=$(echo "$response" | jq -r '.[].full_name')
 
-          # Loop through each repository to get its size, stars, and forks
-          for repo in $repos; do
-            repo_data=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo")
-            repo_size=$(echo "$repo_data" | jq -r '.size')
-            repo_stars=$(echo "$repo_data" | jq -r '.stargazers_count')
-            repo_forks=$(echo "$repo_data" | jq -r '.forks_count')
+            for repo in $repos; do
+              repo_data=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo")
+              repo_size=$(echo "$repo_data" | jq -r '.size')
+              repo_stars=$(echo "$repo_data" | jq -r '.stargazers_count')
+              repo_forks=$(echo "$repo_data" | jq -r '.forks_count')
 
-            total_size=$((total_size + repo_size))
-            stars=$((stars + repo_stars))
-            forks=$((forks + repo_forks))
+              total_size=$((total_size + repo_size))
+              stars=$((stars + repo_stars))
+              forks=$((forks + repo_forks))
+            done
+
+            page=$((page + 1))
           done
 
           # Get the last commit date from the first repository (for simplicity)
-          last_commit=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$(echo $repos | head -n 1)" | jq -r '.pushed_at')
+          first_repo=$(echo "$repos" | head -n 1)
+          last_commit=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$first_repo" | jq -r '.pushed_at')
 
           # Set the output variables
           echo "total_size=$((total_size / 1024))" >> $GITHUB_ENV # Convert to MB
