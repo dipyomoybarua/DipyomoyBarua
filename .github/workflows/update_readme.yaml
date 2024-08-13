@@ -46,14 +46,7 @@ jobs:
           echo "STARS=$stars" >> $GITHUB_ENV
           echo "FORKS=$forks" >> $GITHUB_ENV
           echo "LAST_COMMIT=$last_commit" >> $GITHUB_ENV
-
-      # - name: Debug Environment Variables
-      #   run: |
-      #     echo "TOTAL_SIZE=${{ env.TOTAL_SIZE }}"
-      #     echo "LAST_COMMIT=${{ env.LAST_COMMIT }}"
-      #     echo "STARS=${{ env.STARS }}"
-      #     echo "FORKS=${{ env.FORKS }}"
-
+          
       - name: Update README
         run: |
           # Escape special characters in the LAST_COMMIT variable
