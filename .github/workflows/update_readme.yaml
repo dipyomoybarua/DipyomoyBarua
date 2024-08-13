@@ -56,8 +56,12 @@ jobs:
 
       - name: Update README
         run: |
+          # Escape special characters in the LAST_COMMIT variable
+          last_commit_escaped=$(echo "${{ env.LAST_COMMIT }}" | sed 's/[^^]/[&]/g; s/\^/\\^/g')
+          
+          # Update README.md with the new values
           sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
-          sed -i "s/LAST_COMMIT/${{ env.LAST_COMMIT }}/g" README.md
+          sed -i "s/LAST_COMMIT/${last_commit_escaped}/g" README.md
           sed -i "s/STARS/${{ env.STARS }}/g" README.md
           sed -i "s/FORKS/${{ env.FORKS }}/g" README.md
 
