@@ -48,14 +48,21 @@ jobs:
 
           echo "TOTAL_SIZE=${TOTAL_SIZE}" >> $GITHUB_ENV
           echo "LAST_COMMIT=${LAST_COMMIT}" >> $GITHUB_ENV
-
+          
+      - name: Debug Environment Variables
+        run: |
+          echo "TOTAL_SIZE=${{ env.TOTAL_SIZE }}"
+          echo "LAST_COMMIT=${{ env.LAST_COMMIT }}"
+          echo "STARS=${{ env.STARS }}"
+          echo "FORKS=${{ env.FORKS }}"
+        
       - name: Update README
         run: |
           sed -i "s/\${{ env.TOTAL_SIZE }}/${{ env.TOTAL_SIZE }}/g" README.md
           sed -i "s/\${{ env.LAST_COMMIT }}/${{ env.LAST_COMMIT }}/g" README.md
           sed -i "s/\${{ env.STARS }}/${{ env.STARS }}/g" README.md
           sed -i "s/\${{ env.FORKS }}/${{ env.FORKS }}/g" README.md
-
+        
       - name: Commit and Push Changes
         run: |
           git config --global user.email "you@example.com"
