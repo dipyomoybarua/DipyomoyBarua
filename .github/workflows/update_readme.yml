@@ -24,36 +24,38 @@ jobs:
           total_size=0
           stars=0
           forks=0
+
+          # Fetch all repository data
           repos=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100" | jq -r '.[].full_name')
 
+          # Loop through each repository to get its size, stars, and forks
           for repo in $repos; do
-            repo_size=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.size')
-            repo_stars=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.stargazers_count')
-            repo_forks=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo" | jq -r '.forks_count')
+            repo_data=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo")
+            repo_size=$(echo "$repo_data" | jq -r '.size')
+            repo_stars=$(echo "$repo_data" | jq -r '.stargazers_count')
+            repo_forks=$(echo "$repo_data" | jq -r '.forks_count')
 
             total_size=$((total_size + repo_size))
             stars=$((stars + repo_stars))
             forks=$((forks + repo_forks))
           done
 
-          last_commit=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          # Get the last commit date from the first repository (for simplicity)
+          last_commit=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$(echo $repos | head -n 1)" | jq -r '.pushed_at')
 
           # Set the output variables
-          echo "::set-output name=total_size::$((total_size / 1024))" # Convert to MB
-          echo "::set-output name=stars::$stars"
-          echo "::set-output name=forks::$forks"
-          echo "::set-output name=last_commit::$last_commit"
-
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          echo "total_size=$((total_size / 1024))" >> $GITHUB_ENV # Convert to MB
+          echo "stars=$stars" >> $GITHUB_ENV
+          echo "forks=$forks" >> $GITHUB_ENV
+          echo "last_commit=$last_commit" >> $GITHUB_ENV
 
       # Update the README.md file with the latest statistics
       - name: Update README
         run: |
-          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ steps.repo_stats.outputs.total_size }} MB/" README.md
-          sed -i "s/Last Commit:.*/Last Commit: ${{ steps.repo_stats.outputs.last_commit }}/" README.md
-          sed -i "s/Stars:.*/Stars: ${{ steps.repo_stats.outputs.stars }}/" README.md
-          sed -i "s/Forks:.*/Forks: ${{ steps.repo_stats.outputs.forks }}/" README.md
+          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ env.total_size }} MB/" README.md
+          sed -i "s/Last Commit:.*/Last Commit: ${{ env.last_commit }}/" README.md
+          sed -i "s/Stars:.*/Stars: ${{ env.stars }}/" README.md
+          sed -i "s/Forks:.*/Forks: ${{ env.forks }}/" README.md
 
       # Commit the changes to the README file
       - name: Commit Changes
