@@ -12,10 +12,8 @@ jobs:
 
     - name: Debug GH_TOKEN
       run: |
-        echo "GH_TOKEN is:"
-        echo "${{ secrets.GH_TOKEN }}"
-
-    - name: Use GH_TOKEN
-      run: |
-        echo "Using GH_TOKEN in workflow"
+        echo "GH_TOKEN is present, but not displayed for security reasons."
+        echo "Testing GH_TOKEN access..."
         curl -H "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/user
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
