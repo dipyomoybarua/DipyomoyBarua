@@ -1,0 +1,13 @@
+name: Test GH_TOKEN
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Test Secret Access
+        run: echo "GH_TOKEN=${{ secrets.GH_TOKEN }}"
