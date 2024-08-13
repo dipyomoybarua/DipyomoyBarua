@@ -2,11 +2,7 @@
 
 ### Repository Overview
 
-![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge)
-![Repo Size](https://img.shields.io/badge/Repo%20Size-${{ env.TOTAL_SIZE }}%20MB?color=181717&logo=github&style=for-the-badge&logoColor=181717)
-![Last Commit](https://img.shields.io/badge/Last%20Commit-${{ env.LAST_COMMIT }}?color=F05032&logo=git&logoColor=F05032&style=for-the-badge)
-![Stars](https://img.shields.io/badge/Stars-${{ env.STARS }}?color=181717&logo=github&style=for-the-badge&logoColor=181717)
-![Forks](https://img.shields.io/badge/Forks-${{ env.FORKS }}?color=181717&logo=github&style=for-the-badge&logoColor=181717)
+![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge) ![Repo Size](https://img.shields.io/github/repo-size/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) ![Last Commit](https://img.shields.io/github/last-commit/DipyomoyBarua/DipyomoyBarua?color=F05032&logo=git&logoColor=F05032&style=for-the-badge) ![Stars](https://img.shields.io/github/stars/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717) ![Forks](https://img.shields.io/github/forks/DipyomoyBarua/DipyomoyBarua?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 
 ## ⭐ & 🍴 If you like my work...
 
