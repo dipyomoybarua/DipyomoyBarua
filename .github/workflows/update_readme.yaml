@@ -70,4 +70,4 @@ jobs:
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           
           # Push changes to repository
-          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/dipyomoybarua/DipyomoyBarua.git
+          git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
