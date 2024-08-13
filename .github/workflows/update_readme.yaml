@@ -85,7 +85,7 @@ jobs:
             else
               echo "PAT is available."
             fi
-            
+
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'GitHub Actions'
