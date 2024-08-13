@@ -23,7 +23,7 @@ jobs:
           forks=0
 
           # Fetch all repositories
-          repos_response=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
+          repos_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
           echo "Repositories response: $repos_response" # Debugging: Print the response
 
           # Check if the response contains error message
@@ -42,7 +42,7 @@ jobs:
 
           # Iterate through each repository
           for repo in $repos; do
-            repo_response=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/repos/$repo")
+            repo_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/repos/$repo")
             echo "Repository response for $repo: $repo_response" # Debugging: Print the response
 
             repo_size=$(echo "$repo_response" | jq -r '.size')
@@ -68,7 +68,7 @@ jobs:
           echo "::set-output name=last_commit::$last_commit"
 
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Update README
         run: |
@@ -84,5 +84,3 @@ jobs:
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/dipyomoybarua/DipyomoyBarua.git
-        env:
-          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
