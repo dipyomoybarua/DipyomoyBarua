@@ -54,10 +54,10 @@ jobs:
       - name: Update README
         run: |
           # Update README.md with the latest stats
-          sed -i "s/Total Repo Size:.*/Total Repo Size: ${{ env.TOTAL_SIZE }} MB/" README.md
-          sed -i "s/Last Commit:.*/Last Commit: ${{ env.LAST_COMMIT }}/" README.md
-          sed -i "s/Stars:.*/Stars: ${{ env.STARS }}/" README.md
-          sed -i "s/Forks:.*/Forks: ${{ env.FORKS }}/" README.md
+          sed -i "s/${TOTAL_SIZE}/${{ env.TOTAL_SIZE }}/g" README.md
+          sed -i "s/${LAST_COMMIT}/${{ env.LAST_COMMIT }}/g" README.md
+          sed -i "s/${STARS}/${{ env.STARS }}/g" README.md
+          sed -i "s/${FORKS}/${{ env.FORKS }}/g" README.md
 
       - name: Commit and Push Changes
         run: |
