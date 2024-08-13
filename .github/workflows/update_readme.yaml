@@ -49,10 +49,11 @@ jobs:
 
       - name: Update README
         run: |
-          sed -i "s/\${TOTAL_SIZE}/${{ env.TOTAL_SIZE }}/g" README.md
-          sed -i "s/\${LAST_COMMIT}/${{ env.LAST_COMMIT }}/g" README.md
-          sed -i "s/\${STARS}/${{ env.STARS }}/g" README.md
-          sed -i "s/\${FORKS}/${{ env.FORKS }}/g" README.md
+          sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
+          sed -i "s/LAST_COMMIT/${{ env.LAST_COMMIT }}/g" README.md
+          sed -i "s/STARS/${{ env.STARS }}/g" README.md
+          sed -i "s/FORKS/${{ env.FORKS }}/g" README.md
+        
 
       - name: Commit and Push Changes
         run: |
