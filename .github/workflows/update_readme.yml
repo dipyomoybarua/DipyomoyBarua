@@ -26,6 +26,12 @@ jobs:
           repos_response=$(curl -s -H "Authorization: token ${{ secrets.GH_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
           echo "Repositories response: $repos_response" # Debugging: Print the response
 
+          # Check if the response contains error message
+          if echo "$repos_response" | grep -q "Bad credentials"; then
+            echo "Invalid token or no access. Check your GH_TOKEN secret."
+            exit 1
+          fi
+
           repos=$(echo "$repos_response" | jq -r '.[] | .full_name')
 
           # Check if repos is empty
