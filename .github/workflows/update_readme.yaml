@@ -74,11 +74,14 @@ jobs:
           sed -i "s/Last Commit:.*/Last Commit: ${{ env.last_commit }}/" README.md
           sed -i "s/Stars:.*/Stars: ${{ env.stars }}/" README.md
           sed -i "s/Forks:.*/Forks: ${{ env.forks }}/" README.md
+          cat README.md
+          git status
+          git diff README.md
 
       - name: Commit Changes
         run: |
           git config --global user.name 'GitHub Action'
           git config --global user.email 'action@github.com'
           git add README.md
-          git commit -m "Update README with latest repo stats"
+          git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           git push
