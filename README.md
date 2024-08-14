@@ -60,6 +60,10 @@ In API/UI testing with Cypress and Playwright.
 | ![Dipyomoy Barua's GitHub Stats](https://github-readme-stats.vercel.app/api?username=dipyomoybarua&show_icons=true&locale=en&title_color=ffffff&icon_color=79ff97&text_color=9f9f9f&bg_color=151515) | ![Dipyomoy Barua's Most Used Languages](https://github-readme-stats.vercel.app/api/top-langs?username=dipyomoybarua&show_icons=true&locale=en&layout=compact&title_color=ffffff&text_color=ffffff&icon_color=79ff97&bg_color=151515&border_color=ffffff)|
 | --- | --- |
 
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=DipyomoyBarua&custom_title=Dipyomoy's%20GitHub%20Activity%20Graph&hide_border=true&border_radius=15&bg_color=0d1117&color=c9d1d9&line=58a6ff&point=f0f6fc&area_color=0d1117&title_color=c9d1d9&area=true" alt="GitHub Activity Graph" />
+</p>
+
 <div align ="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=dipyomoybarua&theme=black-ice&hide_border=true&stroke=0000&background=060a0cd0" alt="Dipyomoy Barua's GitHub Streak" />
 </div>
