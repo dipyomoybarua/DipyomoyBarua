@@ -3,15 +3,15 @@
 ## Repository Overview
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge)
-![Repo Size](https://img.shields.io/badge/Repo%20Size-13%20MB?color=181717&logo=github&style=for-the-badge&logoColor=181717)
+<!-- ![Repo Size](https://img.shields.io/badge/Repo%20Size-13%20MB?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 ![Last Commit](https://img.shields.io/badge/Last%20Commit-2024-08-14T20:26:46+05:30?color=F05032&logo=git&logoColor=F05032&style=for-the-badge)
 ![Stars](https://img.shields.io/badge/Stars-5?color=181717&logo=github&style=for-the-badge&logoColor=181717)
-![Forks](https://img.shields.io/badge/Forks-0?color=181717&logo=github&style=for-the-badge&logoColor=181717)
+![Forks](https://img.shields.io/badge/Forks-0?color=181717&logo=github&style=for-the-badge&logoColor=181717) -->
 
-- **Total Repo Size**: `13` MB
-- **Last Commit Date**: `2024-08-14T20:23:35+05:30`
-- **Total Stars**: `5`
-- **Total Forks**: `0`
+- **Total Repo Size**: `REPO_SIZE_MB` MB
+- **Last Commit Date**: `LAST_COMMIT`
+- **Total Stars**: `STARS`
+- **Total Forks**: `FORKS`
 
 ## ⭐ & 🍴 If you like my work...
 
