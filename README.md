@@ -8,10 +8,10 @@
 ![Stars](https://img.shields.io/badge/Stars-STARS?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 ![Forks](https://img.shields.io/badge/Forks-FORKS?color=181717&logo=github&style=for-the-badge&logoColor=181717)
 
-- **Total Repo Size**: REPO_SIZE_MB MB
-- **Last Commit Date**: LAST_COMMIT
-- **Total Stars**: STARS
-- **Total Forks**: FORKS
+- **Total Repo Size**: `REPO_SIZE_MB` MB
+- **Last Commit Date**: `LAST_COMMIT`
+- **Total Stars**: `STARS`
+- **Total Forks**: `FORKS`
 
 ## ⭐ & 🍴 If you like my work...
 
