@@ -59,6 +59,10 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
+          # Pull the latest changes from the remote repository
+          git pull origin main --rebase
+          # Add, commit, and push changes
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
+        
