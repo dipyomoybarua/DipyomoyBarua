@@ -4,10 +4,10 @@
 
 ![Profile views](https://komarev.com/ghpvc/?username=DipyomoyBarua&label=Profile%20views&color=181717&style=for-the-badge)
 
-- 🗂️ **Total Repo Size**: `13` MB
-- 📅 **Last Commit Date**: `2024-08-14T20:40:24+05:30`
-- ⭐ **Total Stars**: `5`
-- 🍴 **Total Forks**: `0`
+- 🗂️ **Total Repo Size**: `REPO_SIZE_MB` MB
+- 📅 **Last Commit Date**: `LAST_COMMIT`
+- ⭐ **Total Stars**: `STARS`
+- 🍴 **Total Forks**: `FORKS`
 
 ## ⭐ & 🍴 If you like my work...
 

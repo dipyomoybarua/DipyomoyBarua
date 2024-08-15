@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
+    - cron: '*/5 * * * *'  # Runs every 5 minutes
 
 jobs:
   update-readme:
@@ -42,14 +42,14 @@ jobs:
             forks=$((forks + repo_forks))
           done
 
-          echo "TOTAL_SIZE=$((total_size / 1024))" >> $GITHUB_ENV
+          total_size_mb=$((total_size / 1024))
+          echo "TOTAL_SIZE=${total_size_mb}MB" >> $GITHUB_ENV
           echo "STARS=$stars" >> $GITHUB_ENV
           echo "FORKS=$forks" >> $GITHUB_ENV
           echo "LAST_COMMIT=$last_commit" >> $GITHUB_ENV
           
       - name: Update README
         run: |
-          # Escape special characters in the LAST_COMMIT variable
           sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
           sed -i "s/LAST_COMMIT/${{ env.LAST_COMMIT }}/g" README.md
           sed -i "s/STARS/${{ env.STARS }}/g" README.md
