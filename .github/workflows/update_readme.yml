@@ -26,7 +26,7 @@ jobs:
           total_size=0
           stars=0
           forks=0
-          last_commit=$(git log -1 --format="%cd" --date=iso-strict)
+          latest_commit_date="1970-01-01T00:00:00Z"  # Initialize with a very old date
 
           repos_response=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/users/DipyomoyBarua/repos?per_page=100")
           repos=$(echo "$repos_response" | jq -r '.[] | select(.fork==false) | .full_name')
@@ -37,21 +37,29 @@ jobs:
             repo_stars=$(echo "$repo_response" | jq -r '.stargazers_count // 0')
             repo_forks=$(echo "$repo_response" | jq -r '.forks_count // 0')
 
+            # Get the last commit date of the repo
+            repo_commit_date=$(curl -s -H "Authorization: token ${{ secrets.PERSONAL_ACCESS_TOKEN }}" "https://api.github.com/repos/$repo/commits?per_page=1" | jq -r '.[0].commit.committer.date')
+
             total_size=$((total_size + repo_size))
             stars=$((stars + repo_stars))
             forks=$((forks + repo_forks))
+
+            # Compare the dates to find the most recent one
+            if [[ "$repo_commit_date" > "$latest_commit_date" ]]; then
+              latest_commit_date=$repo_commit_date
+            fi
           done
 
           total_size_mb=$((total_size / 1024))
           echo "TOTAL_SIZE=${total_size_mb}MB" >> $GITHUB_ENV
           echo "STARS=$stars" >> $GITHUB_ENV
           echo "FORKS=$forks" >> $GITHUB_ENV
-          echo "LAST_COMMIT=$last_commit" >> $GITHUB_ENV
-          
+          echo "LATEST_COMMIT=$latest_commit_date" >> $GITHUB_ENV
+
       - name: Update README
         run: |
           sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
-          sed -i "s/LAST_COMMIT/${{ env.LAST_COMMIT }}/g" README.md
+          sed -i "s/LATEST_COMMIT/${{ env.LATEST_COMMIT }}/g" README.md
           sed -i "s/STARS/${{ env.STARS }}/g" README.md
           sed -i "s/FORKS/${{ env.FORKS }}/g" README.md
 
@@ -65,4 +73,3 @@ jobs:
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
           git push https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git
-        
