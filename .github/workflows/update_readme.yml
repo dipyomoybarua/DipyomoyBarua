@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
@@ -58,17 +60,30 @@ jobs:
 
       - name: Update README
         run: |
-          sed -i "s/REPO_SIZE_MB/${{ env.TOTAL_SIZE }}/g" README.md
-          sed -i "s/LATEST_COMMIT/${{ env.LATEST_COMMIT }}/g" README.md
-          sed -i "s/STARS/${{ env.STARS }}/g" README.md
-          sed -i "s/FORKS/${{ env.FORKS }}/g" README.md
+          sed -i "s/__REPO_SIZE_MB__/${{ env.TOTAL_SIZE }}/g" README.md
+          sed -i "s/__LATEST_COMMIT__/${{ env.LATEST_COMMIT }}/g" README.md
+          sed -i "s/__STARS__/${{ env.STARS }}/g" README.md
+          sed -i "s/__FORKS__/${{ env.FORKS }}/g" README.md
 
       - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'action@github.com'
-          # Pull the latest changes from the remote repository
+
+          # Display current git status for debugging
+          git status
+
+          # Stash any local changes (e.g., README.md modifications)
+          git stash --include-untracked
+
+          # Pull the latest changes from the remote repository with rebase
           git pull origin main --rebase
+
+          # Apply the stashed changes back
+          git stash pop || echo "No stashed changes to apply"
+
           # Add, commit, and push changes
           git add README.md
           git commit -m "Update README with latest repo stats" || echo "No changes to commit"
